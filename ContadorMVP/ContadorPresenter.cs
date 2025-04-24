@@ -10,19 +10,19 @@ internal class ContadorPresenter
         this.model = model;
         this.view = view;
 
-        view.IncrementarClicked += Incrementar;
-        view.DecrementarClicked += Decrementar;
+        view.IncrementarClicked += HandleIncrementar;
+        view.DecrementarClicked += HandleDecrementar;
     }
 
-    private void Incrementar(object sender, EventArgs e)
+    private void HandleIncrementar(object sender, EventArgs e)
     {
-        model.Numero++;
-        view.NumeroPantalla = model.Numero;
+        model.Incrementar();
+        view.UpdateDisplay(model.Numero.ToString());
     }
 
-    private void Decrementar(object sender, EventArgs e)
+    private void HandleDecrementar(object sender, EventArgs e)
     {
-        model.Numero--;
-        view.NumeroPantalla = model.Numero;
+        model.Decrementar();
+        view.UpdateDisplay(model.Numero.ToString());
     }
 }

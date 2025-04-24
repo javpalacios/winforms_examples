@@ -12,8 +12,6 @@ internal class ContadorView : Form, IContadorView
         AttachEventHandlers();
     }
 
-    public int NumeroPantalla { set => pantalla.Text = value.ToString(); }
-
     public event EventHandler IncrementarClicked;
     public event EventHandler DecrementarClicked;
 
@@ -47,5 +45,10 @@ internal class ContadorView : Form, IContadorView
     {
         botonMas.Click += (sender, e) => IncrementarClicked?.Invoke(sender, e);
         botonMenos.Click += (sender, e) => DecrementarClicked?.Invoke(sender, e);
+    }
+
+    public void UpdateDisplay(string data)
+    {
+        pantalla.Text = data;
     }
 }
